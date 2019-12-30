@@ -25,7 +25,7 @@ SECRET_KEY = 'pn8b%88usqfpr805io5cy*f!o)yv20ihjd)2l(b#di7rkgfkc8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'myThirdBlog/blog/entries/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
