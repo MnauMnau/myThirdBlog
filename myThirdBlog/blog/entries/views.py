@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
 from .models import Entry
+from django.db import models
 
 
 class HomeView(ListView):
@@ -23,3 +24,7 @@ class CreateEntryView(CreateView):
     def form_valid(self,form):
         form.instance.entry_author = self.request.user
         return super().form_valid(form)
+
+class AboutMeView(TemplateView):
+    model = Entry
+    template_name = 'entries/aboutMeView.html'
