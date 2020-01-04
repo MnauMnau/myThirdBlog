@@ -1,9 +1,21 @@
 {% extends "entries/base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="col-md-8">
-
+    <img class="img-thumbnail mx-auto d-block" src="{% static 'entries/photos/about_me_photos/my_photo.jpg' %}" alt="Italian Trulli" style="width:50%" >
+    <div class="caption">
+        <p>Hi. <br> My name is Tomáš Obrtáč and I'm this webpage is my free time projec on which I currently working on. 
+            It's still in huge bases so if you accidentally appear here, please don't be scared and
+            please do not try to broke this fragile system here. 
+            <br> 
+            You can contribute to this project here: <a href="https://github.com/MnauMnau/myThirdBlog">github.com/MnauMnau/myThirdBlog</a> . 
+            <br> 
+            Or you can contact me at the email address: <a href="obrtac.tomas@gmail.com"> obrtac.tomas@gmail.com </a> 
+        </p>
+      </div>
 </div>
 
 {% endblock %}
