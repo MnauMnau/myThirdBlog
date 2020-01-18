@@ -9,7 +9,7 @@
     <div class="card mb-4 mt-4">
       <div class="card-body">
         <h2 class="card-title">{{ object.entry_title }}</h2>
-        <p class="card-text">{{ object.entry_text|linebreaks }}</p>
+        <p class="card-text">{{ object.entry_text|safe|linebreaks }}</p>
       </div>
       <div class="card-footer text-muted">
         Posted on {{ entry.entry_date }} by
