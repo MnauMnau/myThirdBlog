@@ -10,12 +10,17 @@
     <div class="card mb-4 mt-4">
       <div class="card-body">
         <h2 class="card-title">{{ entry.entry_title }}</h2>
-        <p class="card-text">{{ entry.entry_text|truncatechars:50|safe  }}</p>
+        <p class="card-text">{{ entry.entry_text|truncatechars:5000|safe  }}</p>
         <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
       </div>
-      <div class="card-footer text-muted">
-        Posted on {{ entry.entry_date }} by
-        <span class= "text-info mr-2">{{ entry.entry_author }}</span>
+        <div class="card-footer text-muted d-flex justify-content-between bg-transparent">
+          <div class = "views">Posted on {{ entry.entry_date }} by
+          <span class= "text-info mr-2">{{ entry.entry_author }}</span> 
+        </div>
+          <div class="stats">
+            <i class="far fa-eye"></i> 1347
+            <i class="far fa-comment"></i> 12
+         </div>
       </div>
     </div>
 
