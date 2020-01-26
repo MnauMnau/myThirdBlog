@@ -16,8 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.contrib.sitemaps.views import sitemap # This need to be included because of sitemaps
+
+from entries.sitemaps import EntrySitemap, AboutMeViewSitemap
+
+# Here we add sitemaps for our webpage
+sitemaps = {
+    'entry-detail': EntrySitemap ,
+    'static' : AboutMeViewSitemap ,
+}
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps' : sitemaps}), # new url for sitemaps
     path('',include('entries.urls'))
 ]

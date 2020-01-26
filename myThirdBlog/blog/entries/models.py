@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from django.contrib.auth.models import User
 
@@ -18,3 +19,6 @@ class Entry(models.Model):
 
     def __str__(self):
         return f'{self.entry_title}'
+
+    def get_absolute_url(self): # This is some method for creation static map
+        return reverse('entry-detail',args = [str(self.pk)])
