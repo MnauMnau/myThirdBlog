@@ -8,6 +8,10 @@ class Entry(models.Model):
     entry_text = models.TextField()
     entry_date = models.DateTimeField(auto_now_add = True)
     entry_author = models.ForeignKey(User, on_delete = models.CASCADE)
+    entry_nViews = models.IntegerField(default = 0) # This will count how many times someone click on page
+
+    def inceraseNViews(self,entry_nViews):
+        entry_nViews = entry_nViews + 1
 
     class Meta:
         verbose_name_plural = 'entries'

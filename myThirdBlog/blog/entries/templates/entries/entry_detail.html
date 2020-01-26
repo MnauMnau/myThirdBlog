@@ -3,7 +3,8 @@
 {% block content %}
 
 <div class="col-md-8">
-
+  
+  
     <a href = "{% url 'blog-home' %}">Back to home</a>
     <!-- Blog Post -->
     <div class="card mb-4 mt-4">
@@ -11,10 +12,14 @@
         <h2 class="card-title">{{ object.entry_title }}</h2>
         <p class="card-text">{{ object.entry_text|safe|linebreaks }}</p>
       </div>
-      <div class="card-footer text-muted">
-        Posted on {{ entry.entry_date }} by
-        <span class= "text-info mr-2">{{ object.entry_author }}</span>
+      <div class="card-footer text-muted d-flex justify-content-between bg-transparent">
+        <div class = "views">Posted on {{ entry.entry_date }} by
+        <span class= "text-info mr-2">{{ entry.entry_author }}</span> 
       </div>
+        <div class="stats">
+          <i class="far fa-eye"></i> {{ entry.entry_nViews }}
+          <i class="far fa-comment"></i> 12
+       </div>
     </div>
 
 
