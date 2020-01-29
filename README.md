@@ -5,3 +5,7 @@ Another attempt to create blog
 When we add new item to the models.py we need to run following commands:
 > python myThirdBlog/myThirdBlog/blog/manage.py makemigrations
 > python myThirdBlog/myThirdBlog/blog/manage.py migrate
+
+
+## Image sitemaps
+https://github.com/akarzim/image-sitemaps
