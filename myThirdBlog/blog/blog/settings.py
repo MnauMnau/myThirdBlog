@@ -136,7 +136,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'entries/static')
 
 # This was added due to summernote engine
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'entries/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'entries/media')
 
 
 # I do not know if it should be here, its from summernote installation notes
