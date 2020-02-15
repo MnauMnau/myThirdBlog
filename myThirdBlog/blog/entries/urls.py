@@ -5,6 +5,9 @@ from django.contrib.sitemaps.views import sitemap # This need to be included bec
 
 from .sitemaps import EntrySitemap
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 # Here we add sitemaps for our webpage
 sitemaps = {
@@ -17,4 +20,8 @@ urlpatterns = [
     path('entry/<int:pk>',EntryView.as_view(), name = 'entry-detail' ),
     path('create_entry',CreateEntryView.as_view(success_url = '/'), name = 'create_entry'),
     path('about_me',AboutMeView.as_view() ,name = 'about_me')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

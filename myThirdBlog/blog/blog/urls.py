@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap # This need to be included because of sitemaps
 
 from entries.sitemaps import EntrySitemap, AboutMeViewSitemap
+
+
 # Here we add sitemaps for our webpage
 sitemaps = {
     'entry-detail': EntrySitemap ,
