@@ -28,7 +28,7 @@ ADMIN_DIR = os.path.join(ADMIN_DIR[0],'venv')
 SECRET_KEY = 'pn8b%88usqfpr805io5cy*f!o)yv20ihjd)2l(b#di7rkgfkc8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
