@@ -11,6 +11,7 @@ from django.conf.urls.static import static
 
 
 # Here we add sitemaps for our webpage
+
 sitemaps = {
     'entry-detail': EntrySitemap
 }
@@ -18,7 +19,7 @@ sitemaps = {
 urlpatterns = [
     path('', HomeView.as_view(), name = 'blog-home'),
     path('sitemap.xml', sitemap, {'sitemaps' : sitemaps}), # new url for sitemaps
-    path('entry/<int:pk>',EntryView.as_view(), name = 'entry-detail' ),
+    path('entry/<int:pk>-<str:random>/',EntryView.as_view(), name = 'entry-detail' ),
     path('create_entry',CreateEntryView.as_view(success_url = '/'), name = 'create_entry'),
     path('about_me',AboutMeView.as_view() ,name = 'about_me'),
     path('image-sitemap.xml',TemplateView.as_view(template_name='entries/image-sitemap.xml', content_type='text/xml'))

@@ -15,6 +15,7 @@ class HomeView(ListView):
 class EntryView(DetailView):
     model = Entry 
     template_name = 'entries/entry_detail.html'
+    query_pk_and_slug = False
     
 
     # We use this function to incerase number of views at webpage

@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 # Create your models here.
 class Entry(models.Model):
@@ -22,7 +23,10 @@ class Entry(models.Model):
         return f'{self.entry_title}'
 
     def get_absolute_url(self): # This is some method for creation static map
-        return reverse('entry-detail',args = [str(self.pk)])
+        kwargs = {"pk": str(self.pk), "random": slugify(self.entry_title)}
+        #kwargs = {"pk" :str(self.pk), "slug" : self.entry_title}
+        #return reverse('entry-detail',args = [str(self.pk)])
+        return reverse('entry-detail',kwargs = kwargs)
 
 
 class Category(models.Model):

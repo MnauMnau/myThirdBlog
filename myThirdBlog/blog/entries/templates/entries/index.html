@@ -13,7 +13,7 @@
       <div class="card-body">
         <h2 class="card-title">{{ entry.entry_title }}</h2>
         <p class="card-text">{{ entry.entry_text|truncatechars:2000|safe  }}</p>
-        <a href="{% url 'entry-detail' entry.pk %}" class="btn btn-primary btn-sm">Read More &rarr;</a>
+        <a href="{{entry.get_absolute_url}}" class="btn btn-primary btn-sm">Read More &rarr;</a>
       </div>
       <div class="card-footer text-muted d-flex justify-content-between bg-transparent">
         <div class = "category">Category: 
