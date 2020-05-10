@@ -8,15 +8,26 @@ class HomeView(ListView):
     model = Entry
     template_name = 'entries/index.html'
     context_object_name = 'blog_entries'
-    ordering = ['-entry_date']
+    ordering = ('-entry_date')
     paginate_by = 3
-# Create your views here.
+
+
+    def get_queryset(self, *args, **kwargs):
+        qs = self.model.objects.all() # Getting all objects
+        if self.kwargs.get('slug'): # If there is no slug we print all results
+            qs = qs.filter(entry_category__slug = self.kwargs['slug']) # We are targeting slug in entry_category
+
+        qs = qs.order_by(self.ordering) # At the end we need to order our results
+
+        return qs
+    
+
+
 
 class EntryView(DetailView):
     model = Entry 
     template_name = 'entries/entry_detail.html'
     query_pk_and_slug = False
-    
 
     # We use this function to incerase number of views at webpage
     def get(self, *args, **kwargs):

@@ -11,7 +11,7 @@ class Entry(models.Model):
     entry_date = models.DateTimeField(auto_now_add = True)
     entry_author = models.ForeignKey(User, on_delete = models.CASCADE)
     entry_nViews = models.IntegerField(default = 0) # This will count how many times someone click on page
-    entry_category = models.ForeignKey('Category', null=True, blank=True, on_delete = models.CASCADE)
+    entry_category = models.ForeignKey('Category', null=True, blank=True, on_delete = models.CASCADE,default = "Random")
 
     def inceraseNViews(self,entry_nViews):
         entry_nViews = entry_nViews + 1
@@ -27,6 +27,14 @@ class Entry(models.Model):
         #kwargs = {"pk" :str(self.pk), "slug" : self.entry_title}
         #return reverse('entry-detail',args = [str(self.pk)])
         return reverse('entry-detail',kwargs = kwargs)
+    
+    def getCategoriesList(self):
+        categoriesList = self.entry_category
+        return categoriesList
+
+
+
+
 
 
 class Category(models.Model):
@@ -43,3 +51,7 @@ class Category(models.Model):
     def __str__(self):                           
         full_path = [self.name]                  
         return f'{self.name}'
+
+    def get_absolute_url(self):
+        kwargs = {"slug" : slugify(self.slug)}
+        return reverse('category',kwargs = kwargs)

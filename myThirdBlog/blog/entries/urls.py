@@ -22,7 +22,8 @@ urlpatterns = [
     path('entry/<int:pk>-<str:random>/',EntryView.as_view(), name = 'entry-detail' ),
     path('create_entry',CreateEntryView.as_view(success_url = '/'), name = 'create_entry'),
     path('about_me',AboutMeView.as_view() ,name = 'about_me'),
-    path('image-sitemap.xml',TemplateView.as_view(template_name='entries/image-sitemap.xml', content_type='text/xml'))
+    path('image-sitemap.xml',TemplateView.as_view(template_name='entries/image-sitemap.xml', content_type='text/xml')),
+    path('category/<str:slug>',HomeView.as_view(),name= 'category')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
