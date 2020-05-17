@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, TemplateView
-from .models import Entry
+from .models import Entry, Category
 from django.db import models
 
 
@@ -10,7 +10,6 @@ class HomeView(ListView):
     context_object_name = 'blog_entries'
     ordering = ('-entry_date')
     paginate_by = 3
-
 
     def get_queryset(self, *args, **kwargs):
         qs = self.model.objects.all() # Getting all objects
